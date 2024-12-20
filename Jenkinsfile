@@ -43,7 +43,11 @@ pipeline {
         stage('Run Application') {
             steps {
                 dir('Jenkins_Application') {
-                    sh 'java -cp target/application-1.0-SNAPSHOT.jar org.example.application.Main'
+                    // Run the application with the library dependency in the classpath
+                    sh '''
+                    java -cp target/application-1.0-SNAPSHOT.jar:/config/workspace/MULTI_REPO_TEST/Jenkins_Library/target/library-1.0-SNAPSHOT.jar \
+                    org.example.application.Main
+                    '''
                 }
             }
         }
