@@ -22,7 +22,7 @@ pipeline {
             }
         }
 
-        stage('Build Jenkins_Library'') {
+        stage('Build Jenkins_Library') {
             steps {
                 dir('Jenkins_Library') {
                     sh 'mvn clean install'
