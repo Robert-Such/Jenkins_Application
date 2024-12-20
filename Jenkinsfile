@@ -43,7 +43,7 @@ pipeline {
         stage('Run Application') {
             steps {
                 dir('Jenkins_Application') {
-                    sh 'java -cp target/application-1.0-SNAPSHOT.jar com.example.application.Main'
+                    sh 'java -cp target/application-1.0-SNAPSHOT.jar org.example.application.Main'
                 }
             }
         }
