@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    tools {
+            maven 'Maven_3.9.9' // Use the name of the Maven installation configured in Jenkins
+        }
     stages {
         stage('Checkout Repositories') {
             steps {
