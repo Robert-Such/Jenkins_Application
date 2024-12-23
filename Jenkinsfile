@@ -3,6 +3,9 @@ pipeline {
     tools {
             maven 'Maven_3.9.9' // Use the name of the Maven installation configured in Jenkins
         }
+    parameters {
+            string(name: 'TEST_NAME', defaultValue: 'World', description: 'Name to use for testing (e.g., World, blank, or null)')
+        }
     stages {
         stage('Checkout Repositories') {
             steps {
@@ -31,6 +34,15 @@ pipeline {
                 }
             }
         }
+
+        stage('Test Jenkins_Library') {
+                    steps {
+                        dir('Jenkins_Library') {
+                            // Pass the parameter to Maven during the test stage
+                            sh "TEST_NAME=${params.TEST_NAME} mvn test"
+                        }
+                    }
+                }
 
         stage('Build Jenkins_Application') {
             steps {
