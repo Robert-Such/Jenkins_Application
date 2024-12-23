@@ -36,12 +36,12 @@ pipeline {
         }
 
         stage('Test Jenkins_Library') {
-            steps {
-                dir('Jenkins_Library') {
-                    sh 'mvn test -DTEST_NAME="${TEST_NAME}"'
+                    steps {
+                        dir('Jenkins_Library') {
+                            sh 'mvn test'
+                        }
+                    }
                 }
-            }
-        }
 
         stage('Build Jenkins_Application') {
             steps {
