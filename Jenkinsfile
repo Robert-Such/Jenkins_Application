@@ -49,6 +49,11 @@ pipeline {
                     sh 'mvn clean install'
                 }
             }
+            post {
+                 always {
+                    junit '**/target/surefire-reports/*.xml' // Archive JUnit test results
+                 }
+            }
         }
 
         stage('Run Application') {
