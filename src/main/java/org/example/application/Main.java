@@ -4,6 +4,7 @@ import org.example.library.Utility;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(Utility.greet("World"));
+        String name = System.getProperty("TEST_NAME");
+        System.out.println(Utility.greet(name));
     }
 }
