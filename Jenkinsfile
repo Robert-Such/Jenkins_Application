@@ -36,13 +36,12 @@ pipeline {
         }
 
         stage('Test Jenkins_Library') {
-                    steps {
-                        dir('Jenkins_Library') {
-                            // Pass the parameter to Maven during the test stage
-                            sh "TEST_NAME=${params.TEST_NAME} mvn test"
-                        }
-                    }
+            steps {
+                dir('Jenkins_Library') {
+                    sh 'mvn test -DTEST_NAME="${TEST_NAME}"'
                 }
+            }
+        }
 
         stage('Build Jenkins_Application') {
             steps {
